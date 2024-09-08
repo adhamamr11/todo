@@ -1,0 +1,15 @@
+{
+  "title" : "Title",
+  "desc" : "Description",
+  "selectDate" : "Select Date",
+  "selectTime" : "Select Time",
+  "addNewTask" : "Add New Task",
+  "delete" : "Delete",
+  "edit"  : "Edit",
+  "addTask" : "Add Task",
+  "language" : "Language",
+  "tasks" : "Tasks",
+   "settings" : "Settings",
+  "done..!" : "Done..!",
+  "hi" : "Hi,"
+}
