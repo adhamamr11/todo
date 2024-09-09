@@ -1,8 +1,11 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todo/manger/provider.dart';
 
 class AppTheme{
+
   static ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: Color(0xffDFECDB),
     useMaterial3: false,
@@ -32,6 +35,10 @@ class AppTheme{
         bodySmall: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),
         displaySmall: TextStyle(color : Colors.red,fontSize: 15),
 
-      )
+      ),
   );
+
+
+  static Color darkThemeColor = Color(0xff141922);
+
 }

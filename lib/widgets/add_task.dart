@@ -29,7 +29,7 @@ class AddTask extends StatelessWidget {
                     hintText: "title".tr(), hintStyle: TextStyle(fontSize: 18)),
               ),
               SizedBox(
-                height: 20,
+                height: 15,
               ),
               TextField(
                 controller: provider.descTextController,
@@ -38,11 +38,11 @@ class AddTask extends StatelessWidget {
                     hintText: "desc".tr(), hintStyle: TextStyle(fontSize: 18)),
               ),
               SizedBox(
-                height: 20,
+                height: 15,
               ),
               Text("selectDate".tr()),
               SizedBox(
-                height: 20,
+                height: 15,
               ),
               InkWell(
                   onTap: () {
@@ -58,11 +58,11 @@ class AddTask extends StatelessWidget {
                   child: Text(
                       provider.selectedDatePiker.toString().substring(0, 10))),
               SizedBox(
-                height: 20,
+                height: 15,
               ),
               Text("selectTime".tr()),
               SizedBox(
-                height: 20,
+                height: 15,
               ),
               InkWell(
                   onTap: () {

@@ -107,4 +107,11 @@ class FirebaseFunctions {
       throw e.toString();
     }
       }
+
+
+  static Future<void> updateTask(TaskModel task) async {
+    var ref = mainTaskFunction();
+    await ref.doc(task.id).update(task.toJson());
+  }
+
     }

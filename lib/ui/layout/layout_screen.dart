@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo/manger/provider.dart';
+import 'package:todo/manger/theme_provider.dart';
+import 'package:todo/theme/app_theme.dart';
 
 import '../../widgets/add_task.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -14,6 +16,7 @@ class LayoutScreen extends StatelessWidget {
   static const String routeName = "Layout";
   @override
   Widget build(BuildContext context) {
+    var themeProvider = Provider.of<ThemeProvider>(context);
     return ChangeNotifierProvider(
       create: (context) => MainProvider(),
       child: Selector<MainProvider, int>(
@@ -24,7 +27,7 @@ class LayoutScreen extends StatelessWidget {
             floatingActionButton: FloatingActionButton(
                 shape: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(360),
-                    borderSide: BorderSide(color: Colors.white, width: 4)),
+                    borderSide: BorderSide(color: themeProvider.isDarkModeEnable() ? AppTheme.darkThemeColor:Colors.white, width: 4)),
                 onPressed: () {
                   showModalBottomSheet(
                     showDragHandle: true,
@@ -53,7 +56,7 @@ class LayoutScreen extends StatelessWidget {
               child: BottomAppBar(
                 shape: CircularNotchedRectangle(),
                 notchMargin: 8,
-                color: Colors.white,
+                color: themeProvider.isDarkModeEnable() ? AppTheme.darkThemeColor:Colors.white,
                 child: BottomNavigationBar(
                   showSelectedLabels: true,
                   showUnselectedLabels: false,

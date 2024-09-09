@@ -45,7 +45,7 @@ class EditTaskScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "editTask",
+                              "editTask".tr(),
                               style: Theme.of(context).textTheme.titleLarge,
                             ),
                           ],
@@ -68,7 +68,32 @@ class EditTaskScreen extends StatelessWidget {
                         SizedBox(
                           height: 30,
                         ),
-                        Text("selectTime".tr(),style:Theme.of(context).textTheme.titleSmall,),
+                        Text("selectDate".tr(),style:TextStyle(fontWeight: FontWeight.bold,fontSize: 25),),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        InkWell(
+                            onTap: () {
+                              showDatePicker(
+                                  context: context,
+                                  initialDate: provider.selectedDatePiker,
+                                  firstDate: DateTime.now(),
+                                  lastDate: DateTime.now().add(Duration(days: 365)))
+                                  .then((value) {
+                                provider.setDatePiker(value!);
+                              });
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                    provider.selectedDatePiker.toString().substring(0, 10),style: Theme.of(context).textTheme.titleSmall,),
+                              ],
+                            )),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Text("selectTime".tr(),style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25),),
                         SizedBox(
                           height: 20,
                         ),
@@ -85,14 +110,17 @@ class EditTaskScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  arg.time,
+                                  "${provider.selectedTimePiker.hour} : ${provider.selectedTimePiker.minute}",
                                   style: Theme.of(context).textTheme.titleSmall,
                                 ),
                               ],
                             )),
                         Spacer(),
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            provider.updateTask(arg);
+                            Navigator.pop(context);
+                          },
                           child: Container(
                             padding: EdgeInsets.all(15),
                             decoration: BoxDecoration(
@@ -103,7 +131,7 @@ class EditTaskScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "saveChanges",
+                                  "saveChanges".tr(),
                                   style: Theme.of(context).textTheme.bodySmall,
                                 ),
                               ],

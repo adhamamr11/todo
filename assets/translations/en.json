@@ -11,5 +11,8 @@
   "tasks" : "Tasks",
    "settings" : "Settings",
   "done..!" : "Done..!",
-  "hi" : "Hi,"
+  "hi" : "Hi,",
+  "editTask" : "Edit Task",
+  "saveChanges" : "Save Changes",
+  "mode" : "Mode"
 }
